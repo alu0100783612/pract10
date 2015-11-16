@@ -51,9 +51,8 @@ class Lista
     
     #eliminar el nodo y cambiar los valores al nodo anterior 
     def extraer_inicio()
-        
-       @cola=cabeza.next
-       
+            @cola=@cola.next
+
     end
     
     def to_s

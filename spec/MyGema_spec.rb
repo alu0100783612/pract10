@@ -91,7 +91,7 @@ describe MyGema do
       it 'Prueba extraer inicio por la cola' do
         @lista1.insertar_varios([@libro1,@libro2,@libro3,@libro4,@libro5])
         @lista1.extraer_inicio()
-        expect(x =@lista1.cola.value).to equal(@libro1)
+        expect(x =@lista1.cola.value).to equal(@libro2)
       end
       
 
