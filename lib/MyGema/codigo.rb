@@ -55,6 +55,11 @@ class Lista
 
     end
     
+    def extraer_final()
+       @cabeza=@cabeza.prev
+        
+    end
+    
     def to_s
          @cabeza.to_s 
     end

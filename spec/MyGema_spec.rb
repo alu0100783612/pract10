@@ -94,6 +94,11 @@ describe MyGema do
         expect(x =@lista1.cola.value).to equal(@libro2)
       end
       
+       it 'Prueba extraer final por la cabeza' do
+        @lista1.insertar_varios([@libro1,@libro2,@libro3,@libro4,@libro5])
+        @lista1.extraer_final()
+        expect(x =@lista1.cabeza.value).to equal(@libro4)
+      end
 
   end
   
