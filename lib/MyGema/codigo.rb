@@ -1,5 +1,5 @@
 
-Nodos = Struct.new(:value, :next)
+Nodos = Struct.new(:value, :next, :prev)
      
 
 
@@ -7,18 +7,35 @@ class Lista
     
 
 
-    attr_accessor :cabeza
+    attr_accessor :cabeza ,:cola, :nodo_actual
     
-    def initialize(cabeza)
+    def initialize(cabeza,cola)
         @cabeza = cabeza
-       
+        @cola=cola
     end 
+    
     def insertar(x)
-        #como se le define el next??
+        
       
-        node = Nodos.new(x,nil)
-         node.next=@cabeza
-        @cabeza=node
+        node = Nodos.new(x,nil,nil)
+        
+        if @cabeza==nil && @cola ==nil
+            
+            node.prev=@cola
+            node.next=@cabeza
+            @nodo_actual = node
+            @cabeza=node
+            @cola =node
+            
+        else
+            node.prev=@cabeza
+            node.next=nil
+            @nodo_actual = node
+            @cabeza.next =node
+            @cabeza=node
+            
+        end
+        
     end 
     
     def insertar_varios(nodos)
@@ -34,7 +51,8 @@ class Lista
     
     #eliminar el nodo y cambiar los valores al nodo anterior 
     def extraer_inicio()
-       @cabeza=cabeza.next
+        
+       @cola=cabeza.next
        
     end
     

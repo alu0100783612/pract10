@@ -50,7 +50,7 @@ describe MyGema do
       @libro3 = Libro.new(["David Flanagan, Yukihiro Matsumoto"],"The Ruby Programming Language","","O’Reilly Media", "1 edition","February 4, 2008",["ISBN-10: 0596516177. ISBN-13: 978-0596516178."],3)
       @libro4 = Libro.new(["David Chelimsky, Dave Astels, Bryan Helmkamp, Dan North, Zach Dennis, Aslak Hellesoy"],"The RSpec Book: Behaviour Driven Development with RSpec, Cucumber, and Friends (The Facets of Ruby).","","Pragmatic Bookshelf", "1 edition","December 25, 2010",["ISBN-10: 1934356379. ISBN-13: 978-1934356371."],4)
       @libro5 = Libro.new(["Richard E."],"Silverman Git Pocket Guide"," "," O’Reilly Media","1 edition","August 2, 2013",["ISBN-10: 1449325866,ISBN-13: 978-1449325862."],5)
-      @lista1 = Lista.new(nil)
+      @lista1 = Lista.new(nil,nil)
       #nodos
       #nodo1=Nodos.new(@libro1,nil)
       #nodo2=Nodos.new(@libro2,nodo1)
@@ -66,20 +66,32 @@ describe MyGema do
       @lista1.insertar(@libro1)
         expect(@lista1.cabeza.value).to equal(@libro1)
     end 
-      it 'Prueba insercion ' do 
+    it 'Existe cola' do
+      @lista1.insertar(@libro1)
+        expect(@lista1.cola.value).to equal(@libro1)
+    end 
+      it 'Prueba insercion con cabeza ' do 
         @lista1.insertar(@libro1)
         expect(x = @lista1.cabeza.value).to equal(@libro1)
       end
-      
-      it 'Prueba Insertar Varios' do
+      it 'Existe insercion con cola' do
+      @lista1.insertar(@libro1)
+        expect(@lista1.cola.value).to equal(@libro1)
+    end 
+      it 'Prueba Insertar Varios con cabeza correcta' do
       @lista1.insertar_varios([@libro1,@libro2,@libro3,@libro4,@libro5])
       expect(x =@lista1.cabeza.value).to equal(@libro5)
       end
       
-      it 'Prueba extraer inicio' do
+       it 'Prueba Insertar Varios con cola correcta' do
+      @lista1.insertar_varios([@libro1,@libro2,@libro3,@libro4,@libro5])
+      expect(x =@lista1.cola.value).to equal(@libro1)
+      end
+      
+      it 'Prueba extraer inicio por la cola' do
         @lista1.insertar_varios([@libro1,@libro2,@libro3,@libro4,@libro5])
         @lista1.extraer_inicio()
-        expect(x =@lista1.cabeza.value).to equal(@libro4)
+        expect(x =@lista1.cola.value).to equal(@libro1)
       end
       
 
