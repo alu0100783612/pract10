@@ -67,6 +67,7 @@ end
 
 =begin
 
+* Hay que recorrer la lista?¿?
 
 Object   
 ^   
@@ -78,7 +79,7 @@ Libro revista documento electronico atributos expecificos del libro o revista
 
 Pruebas para comprobar la herencia de la clase 
 is_a?
-respon_to?
+respon_to? //Como se hace ??
 
 lista para los dos lados
 
