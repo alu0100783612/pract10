@@ -1,3 +1,4 @@
 source 'https://rubygems.org'
-# Specify your gem's dependencies in MyGema.gemspec
+
+# Specify your gem's dependencies in MiGema.gemspec
 gemspec
