@@ -1,5 +1,7 @@
 class Bibliografia
     
+include Comparable    
+
      attr_accessor :autores, :titulo, :fecha, :id
 
   def initialize(autores, titulo,  fecha, id)
@@ -11,7 +13,10 @@ class Bibliografia
    def to_s
       "#{@autores.join(",")}\n#{@titulo}\n#{@fecha}\n#{@id}"
    end
-
+    
+    def <=>(otro)
+        id<=>otro.id
+    end
     
 end
 
