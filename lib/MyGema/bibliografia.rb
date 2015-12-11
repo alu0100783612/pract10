@@ -12,10 +12,21 @@ include Comparable
   
    def to_s
       "#{@autores.join(",")}\n#{@titulo}\n#{@fecha}\n#{@id}"
+     
    end
     
     def <=>(otro)
-        id<=>otro.id
+        if  to_s{2} != otro.to_s{2}
+            
+            to_s{2} <=> otro.to_s{2}
+            
+        elsif ((fecha.is_a? Time) && (otro.fecha.is_a? Time))
+            fecha.year <=> otro.fecha.year
+        else
+            return -1
+        end
+        
+        
     end
     
 end
@@ -34,7 +45,7 @@ class Libro < Bibliografia
   def to_s
      "#{@autores.join(",")}\n#{@titulo}\n#{@serie}\n#{@editorial}\n#{@edicion}\n#{@fecha}\n#{@isbn.join(",")}\n#{@id}"
   end
-
+  
 end
 
 

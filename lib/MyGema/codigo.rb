@@ -1,10 +1,10 @@
-include Enumerable
+
 Nodos = Struct.new(:value, :next, :prev)
      
 
 
 class Lista
-    
+    include Enumerable
 
 
     attr_accessor :cabeza ,:cola, :nodo_actual
@@ -48,6 +48,9 @@ class Lista
  
     end
         
+    def get_nodo()
+            return @cabeza.value
+    end
     
     #eliminar el nodo y cambiar los valores al nodo anterior 
     def extraer_inicio()
@@ -61,7 +64,18 @@ class Lista
     end
     
     def to_s
-         @cabeza.to_s 
+        while @cabeza != @cola
+             "#{@cabeza.value}"
+            @cabeza=@cabeza.prev
+        end
+        
+        if @cabeza == @cola
+           if @cabeza == nil 
+            nil 
+           else
+            "#{@cola.value}"
+           end
+        end
     end
     
     def each
